@@ -1,0 +1,28 @@
+{
+    "new": "New Game",
+    "load": "Load Game",
+    "settings": "Settings",
+    "credits": "Credits",
+    "quit": "Quit",
+    "descriptions": {
+        "new": "Crie seu próprio personagem e embarque em uma nova jornada",
+        "load": "Continue a jogar sua história de onde parou",
+        "settings": "Configure as opções de jogo para uma melhor experiência",
+        "credits": "Veja quem está por trás do projeto",
+        "quit": "Retorne à sua Área de Trabalho"
+    },
+    "settingsOptions": {
+        "language": "Language",
+        "volumeSFX": "Sound Effects Volume",
+        "volumeMusic": "Music Volume",
+        "fontSize": "Font Size",
+        "return": "Return",
+        "descriptions": {
+            "language": "Altera em qual idioma os textos do jogo aparecerão",
+            "volumeSFX": "Altera o volume dos sons de efeito",
+            "volumeMusic": "Altera o volume da música de fundo",
+            "fontSize": "Altera o tamanho padrão do texto",
+            "return": "Volte para ao menu de inicial"
+        }
+    }
+}

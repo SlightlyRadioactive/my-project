@@ -1,0 +1,64 @@
+@keyframes fadeIn {
+    from {
+        filter: brightness(0);
+    }
+    to {
+        filter: brightness(1);
+    }
+}
+
+@keyframes fadeIn-50 {
+    from {
+        filter: brightness(0);
+    }
+    to {
+        filter: brightness(0.5);
+    }
+}
+
+
+@keyframes fadeOut {
+    from {
+        filter: brightness(1);
+    }
+    to {
+        filter: brightness(0);
+    }
+}
+
+@keyframes fadeOut-50 {
+    from {
+        filter: brightness(0.5);
+    }
+    to {
+        filter: brightness(0);
+    }
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
+.fadeIn-50 {
+    animation-name: fadeIn-50;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
+.fadeOut {
+    animation-name: fadeOut;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+.fadeOut-50 {
+    animation-name: fadeOut-50;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
