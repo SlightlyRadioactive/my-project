@@ -1,28 +1,39 @@
 {
+    "info": "Attention!",
+    "infoDescription": "This is just a demonstration, many of the functionalities still are not implemented and everything you are about to see is subject to changes.",
+    "continue": "Click to continue",
     "new": "New Game",
     "load": "Load Game",
     "settings": "Settings",
     "credits": "Credits",
     "quit": "Quit",
     "descriptions": {
-        "new": "Crie seu próprio personagem e embarque em uma nova jornada",
-        "load": "Continue a jogar sua história de onde parou",
-        "settings": "Configure as opções de jogo para uma melhor experiência",
-        "credits": "Veja quem está por trás do projeto",
-        "quit": "Retorne à sua Área de Trabalho"
+        "new": "Create your own character and embark on a new journey",
+        "load": "Continue to play the story from where you left off",
+        "settings": "Configure your game options for a better experience",
+        "credits": "See who's behind this project",
+        "quit": "Return to Desktop"
     },
     "settingsOptions": {
         "language": "Language",
+        "brightness": "Brightness",
         "volumeSFX": "Sound Effects Volume",
         "volumeMusic": "Music Volume",
         "fontSize": "Font Size",
         "return": "Return",
         "descriptions": {
-            "language": "Altera em qual idioma os textos do jogo aparecerão",
-            "volumeSFX": "Altera o volume dos sons de efeito",
-            "volumeMusic": "Altera o volume da música de fundo",
-            "fontSize": "Altera o tamanho padrão do texto",
-            "return": "Volte para ao menu de inicial"
+            "language": "Change in which language the texts of the game will be displayed",
+            "brightness": "Change the level of brightness of the screen",
+            "volumeSFX": "Change the sound effects' volume",
+            "volumeMusic": "Change the background music's volume",
+            "fontSize": "Change the default font size",
+            "return": "Return to the previous menu"
         }
-    }
+    },
+    "creditsRoles": [
+        {
+            "id": "programming",
+            "title": "Programming:"
+        }
+    ]
 }

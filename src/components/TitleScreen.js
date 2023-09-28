@@ -5,7 +5,7 @@ function TitleScreen({text, selectedOption}) {
 
     return (
         <div className="bg-black h-full w-1/3 text-center text-white font-mono text-lg border-4 rounded-lg border-white opacity-95">
-            <p className="text-5xl mt-16 mb-24">Título</p>
+            <p className="text-5xl mt-16 mb-24">Projeto</p>
             <button className="titleBtn" onClick={() => selectedOption('new')} onMouseOver={() => setDescription(text['descriptions']['new'])}>{text['new']}</button>
             <button className="titleBtn" onClick={() => selectedOption('load')} onMouseOver={() => setDescription(text['descriptions']['load'])}>{text['load']}</button>
             <button className="titleBtn" onClick={() => selectedOption('settings')} onMouseOver={() => setDescription(text['descriptions']['settings'])}>{text['settings']}</button>

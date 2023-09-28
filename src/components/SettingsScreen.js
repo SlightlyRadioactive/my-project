@@ -1,7 +1,8 @@
 import { useState } from "react";
 
-function SettingsScreen({text, selectedOption, language, curLang, musicVol, curMusicVol}) {
+function SettingsScreen({text, selectedOption, language, curLang, musicVol, curMusicVol, brightness, curBrightness}) {
     const [description, setDescription] = useState('');
+    const [currentBrightness, setCurrentBrightness] = useState(curBrightness);
     const [selectedLanguage, setSelectedLanguage] = useState(curLang);
     const [currentMusicVol, setMusicVol] = useState(curMusicVol);
 
@@ -15,15 +16,24 @@ function SettingsScreen({text, selectedOption, language, curLang, musicVol, curM
         musicVol(value);
     }
 
+    const changeBrightness = (value) => {
+        setCurrentBrightness(value);
+        brightness(value);
+    }
+
     return (
         <div className="bg-black h-full w-1/3 text-center text-white font-mono text-lg border-4 rounded-lg border-white opacity-95">
             <p className="text-5xl mt-16 mb-24">Projeto</p>
             <div>
                 <button className="titleBtn" onMouseOver={() => setDescription(text['descriptions']['language'])}>{text['language']}</button>
-                <select className="bg-black" onChange={(event) => changeVal(event.target.value)} value={selectedLanguage}>
+                <select className="bg-black border-white border-2" onChange={(event) => changeVal(event.target.value)} value={selectedLanguage}>
                     <option value='pt-BR'>Português</option>
                     <option value='en-US'>English</option>
                 </select>
+            </div>
+            <div>
+                <button className="titleBtn" onMouseOver={() => setDescription(text['descriptions']['brightness'])}>{text['brightness']}</button>
+                <input type="range" min={0.2} max={2} step={0.02} value={currentBrightness} onChange={(event) => changeBrightness(event.target.value)}/>
             </div>
             <button className="titleBtn" onMouseOver={() => setDescription(text['descriptions']['volumeSFX'])}>{text['volumeSFX']}</button>
             <div>

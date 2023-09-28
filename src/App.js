@@ -1,14 +1,19 @@
 import { useState } from "react";
 import TitleScreen from "./components/TitleScreen";
 import SettingsScreen from "./components/SettingsScreen";
+import CreditsScreen from "./components/CreditsScreen";
 import "./animations.css";
 import Background from "./components/Background";
 import Song from "./music/track.mp3";
 
 function App() {
   const jsons = require.context('./json', true);
-  const [language, setLanguage] = useState('pt-BR');
-  let titleJson = jsons(`./title_${language}.json`);
+  const [gameLanguage, setGameLanguage] = useState(navigator.language || navigator.userLanguage);
+  if (require(`./json/title_${gameLanguage}.json`) === undefined) {}
+  let titleJson = jsons(`./title_${gameLanguage}.json`);
+  let creditsJson = jsons(`./credits.json`);
+
+  const [brightness, setBrightness] = useState(1);
 
   var audio = document.getElementById("myAudio");
   const [musicVolume, setMusicVolume] = useState(1);
@@ -41,12 +46,16 @@ function App() {
   };
 
   let onChangeLanguage = (value) => {
-    setLanguage(value);
+    setGameLanguage(value);
+  }
+
+  let onChangeBrightness = (value) => {
+    console.log(value)
+    setBrightness(value);
   }
 
   let onChangeMusicVolume = (value) => {
     audio.volume = parseFloat(value);
-    console.log(audio.volume)
     setMusicVolume(parseFloat(value));
   }
 
@@ -55,24 +64,25 @@ function App() {
       <div className="App relative bg-black" onClick={AcceptMessage}>
         <div className="h-screen w-screen bg-black absolute top-0 flex justify-center fadeIn" id="screen">
           <div className="bg-black h-full w-1/3 text-center text-white font-mono text-lg">
-            <h2 className="pt-40">Atenção!</h2>
+            <h2 className="pt-40">{titleJson['info']}</h2>
             <hr />
-            <p className="pt-5 pb-40">Isto é apenas uma mera demonstração do jogo, muitas das funções ainda não foram implementadas e tudo que você ver está sujeito a mudanças.</p>
-            <p>Clique para continuar</p>
+            <p className="pt-5 pb-40">{titleJson['infoDescription']}</p>
+            <p>{titleJson['continue']}</p>
           </div>
         </div>
       </div>
     );
   } else {
     return (
-      <div className="App relative bg-black">
+      <div className="App relative bg-black" style={{filter: `brightness(${brightness})`}}>
         <audio autoPlay loop id="myAudio">
           <source src={Song} type="audio/mpeg"/>
         </audio>
         <Background text={currentBackground} />
         <div className="h-screen w-screen absolute top-0 flex justify-center fadeIn" id="screen">
           {currentScreen === 'title' ? <TitleScreen text={titleJson} selectedOption={onClickFunction} /> : ""}
-          {currentScreen === 'settings' ? <SettingsScreen text={titleJson['settingsOptions']} selectedOption={onClickFunction} language={onChangeLanguage} curLang={language} musicVol={onChangeMusicVolume} curMusicVol={musicVolume}/> : ""}
+          {currentScreen === 'settings' ? <SettingsScreen text={titleJson['settingsOptions']} selectedOption={onClickFunction} language={onChangeLanguage} curLang={gameLanguage} musicVol={onChangeMusicVolume} curMusicVol={musicVolume} brightness={onChangeBrightness} curBrightness={brightness}/> : ""}
+          {currentScreen === 'credits' ? <CreditsScreen text={titleJson} credits={creditsJson['credits']} selectedOption={onClickFunction}/> : ""}
         </div>
       </div>
     );
